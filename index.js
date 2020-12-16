@@ -1,10 +1,16 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 
 //import mongoose 
 const db = require('./config/mongoose');
+
+app.use(express.urlencoded());
+
+app.use(cookieParser());
+
 //include static assets
 app.use(express.static('./assets'));
 //using 'express-ejs-layouts'
