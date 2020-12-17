@@ -2,10 +2,22 @@ const User = require("../models/user");
 const { use } = require("../routes/users");
 
 module.exports.profile = function(req, res) {
-    return res.render('user_profile', {
-        title: "user"
-    });
+    if(req.cookies.user_id) {
+        User.findById(req.cookies.user_id, function(err, user) {
+            if(user) {
+                return res.render('user_profile', {
+                    title: "User Profile",
+                    user: user
+                });
+            }else {
+                return res.redirect('/users/sign-in');
+            } 
+        });
+    }else {
+        return res.redirect('/users/sign-in');
+    }
 }
+
 
 //when user clicks on 'sign-up' button on home page, render the signup page
 module.exports.signUp = function(req, res) {
