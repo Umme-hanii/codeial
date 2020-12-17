@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const router = require("../routes/users");
 const { use } = require("../routes/users");
 
 module.exports.profile = function(req, res) {
@@ -14,7 +15,7 @@ module.exports.profile = function(req, res) {
             } 
         });
     }else {
-        return res.redirect('/users/sign-in');
+        return res.redirect('/users/sign-up');
     }
 }
 
@@ -75,4 +76,11 @@ module.exports.createSession = function(req, res) {
             return res.redirect('back');
         }
     });
+}
+
+//sign out and end the session
+module.exports.endSession = function(req, res) {
+    // res.cookie('user_id', null);
+    res.clearCookie('user_id')
+    return res.redirect('/users/profile')
 }
