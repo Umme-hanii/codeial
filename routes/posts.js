@@ -7,4 +7,5 @@ const postsController = require('../controllers/posts_controller');
 
 router.post('/create', passport.checkAuthentication, postsController.create);
 
+router.post('/comment', postsController.comment);
 module.exports = router;

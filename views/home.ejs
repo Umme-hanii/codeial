@@ -16,6 +16,10 @@
             <textarea name="content" cols="30" rows="3" placeholder="Type here..."></textarea>
             <input type="submit" value="Post">
         </form>
+        <form action="/posts/comment" id="new-comment" method="POST">
+            <textarea id="comment-box" name="comment" cols="15" rows="1" placeholder="Add Comment"></textarea>
+            <input type="submit" value="Add Comment">
+        </form>
     <% } %>
     <div id="posts-list-container">
         <ul>
