@@ -1,12 +1,11 @@
 const User = require("../models/user");
 
-module.exports.profile = function(req, res) {
-    User.findById(req.params.id, function(err, user) {
-        return res.render('user_profile', {
-            title: "user",
-            profile_user: user
-        });
-    });    
+module.exports.profile = async function(req, res) {
+    let user = await User.findById(req.params.id);
+    return res.render('user_profile', {
+        title: "user",
+        profile_user: user
+    });        
 }
 
 module.exports.update = function(req, res) {
