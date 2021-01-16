@@ -1,13 +1,3 @@
-body {
-  background-color: lightpink;
-}
-
-#comment-box {
-  border-style: none;
-  background-color: transparent;
-  border-bottom: 1px solid;
-}
-
 #home-container {
   display: flex;
 }
@@ -20,5 +10,6 @@ body {
 #home-container #user-friends {
   width: 30%;
   padding: 10px;
-  border-left: 1px solid red;
+  border-left: 1px solid lightgrey;
+  height: 100%;
 }
